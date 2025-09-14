@@ -4,7 +4,7 @@
   "description": "Build an Hotel Room Booking System for node.js, express.js application from the scratch by Mukul",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "dev": "NODE_ENV=development nodemon server.js",
     "prod": "NODE_ENV=production node server.js",
     "lint": "eslint .",
@@ -37,7 +37,9 @@
     "mongoose": "^6.6.7",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "nodemon": "^3.1.10",
     "serve-favicon": "^2.5.0",
+    "socket.io": "^4.8.1",
     "validator": "^13.7.0",
     "winston": "^3.8.2"
   },

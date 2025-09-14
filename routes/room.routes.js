@@ -1,11 +1,3 @@
-/**
- * @name Hotel Room Booking System
- * @author Md. Samiur Rahman (Mukul)
- * @description Hotel Room Booking and Management System Software ~ Developed By Md. Samiur Rahman (Mukul)
- * @copyright ©2023 ― Md. Samiur Rahman (Mukul). All rights reserved.
- * @version v0.0.1
- *
- */
 
 const router = require('express').Router();
 const roomImageUpload = require('../middleware/room.image.upload');
@@ -16,7 +8,7 @@ const {
 } = require('../controllers/room.controllers');
 
 // route for create new room
-router.route('/create-room').post(isAuthenticatedUser, isAdmin, roomImageUpload.array('room_images', 5), createRoom);
+router.post("/create-room",roomImageUpload.array('room_images', 5), createRoom);
 
 // routes for get all, single and featured rooms list
 router.route('/all-rooms-list').get(getRoomsList);
