@@ -205,11 +205,11 @@ exports.loginUser = async (req, res) => {
     // response user with JWT access token token
     loginResponse(res, logUser);
   } catch (error) {
-    res.status(500).json(errorResponse(
-      1,
-      'FAILED',
-      error
-    ));
+   res.status(500).json(errorResponse(
+    1,
+    'FAILED',
+    error.message || 'Something went wrong'
+  ));
   }
 };
 

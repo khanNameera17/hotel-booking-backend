@@ -17,7 +17,7 @@ const {
 
 // routes for register, login and logout user
 router.route('/auth/registration').post(avatarUpload.single('avatar'), register);
-router.route('/auth/login').post(apiLimiter, avatarUpload.none(), loginUser);
+router.post('/auth/login', loginUser);
 router.route('/auth/logout').post(isAuthenticatedUser, isBlocked, logoutUser);
 
 // routes for forgot & change password
