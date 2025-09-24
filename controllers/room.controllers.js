@@ -2,10 +2,21 @@
 const fs = require('fs');
 const appRoot = require('app-root-path');
 const Room = require('../models/room');
+const path = require("path");
 const logger = require('../middleware/winston.logger');
 const { errorResponse, successResponse } = require('../configs/app.response');
 const MyQueryHelper = require('../configs/api.feature');
+// Delete uploaded files if request fails
+const cleanupUploads = (files) => {
+ if (!files || !files.length) return;
 
+ files.forEach((file) => {
+   const filePath = path.join(__dirname, "../uploads/rooms", file.filename);
+   if (fs.existsSync(filePath)) {
+     fs.unlinkSync(filePath); // delete file
+   }
+ });
+};
 // TODO: Controller for create new room
 exports.createRoom = async (req, res) => {
  try {

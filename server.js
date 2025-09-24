@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { readdirSync } = require("fs");
 const cors = require("cors");
+const path = require("path");
 const cookieParser = require("cookie-parser");
 
 require("dotenv").config();
@@ -25,7 +26,8 @@ app.use(
     credentials: true,
   })
 );
-
+// Serve static files from public/uploads
+app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 // Connect to MongoDB
 mongoose.connect(MONGODB_URI);
 
