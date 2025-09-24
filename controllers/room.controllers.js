@@ -138,7 +138,7 @@ exports.getRoomsList = async (req, res) => {
      room_status: data.status,
      extra_facilities: data.facilities || [],
      room_images: data.images?.map(
-       (img) => `${process.env.APP_BASE_URL}${img.url}` // full URL
+       (img) => `${process.env.BACKEND_URL}${img.url}` // full URL
      ),
      created_by: data.createdBy || null,
      created_at: data.createdAt,
